@@ -1,6 +1,4 @@
 from catalog import SupermarketCatalog
-
-
 class FakeCatalog(SupermarketCatalog):
     def __init__(self):
         self.products = {}
@@ -11,5 +9,4 @@ class FakeCatalog(SupermarketCatalog):
         self.prices[product.name] = price
 
     def unit_price(self, product):
-        return self.prices[product.name]
-
+        return self.prices.get(product.name, 0.0)  # Return 0.0 if the product is not found
